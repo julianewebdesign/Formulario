@@ -42,7 +42,7 @@ section#login {
 
 section#login>div#imagem {
     display: block;
-    background: #eabdc7 url(/assets/imagem01.png) no-repeat;
+    background: #eabdc7 url(../assets/imagem01.png) no-repeat;
     background-size: cover;
     background-position: left center;
     height: 200px;
@@ -157,7 +157,7 @@ form>a.botao>span {
         float: left;
         width: 30%;
         height: 100%;
-        background: #eabdc7 url(/assets/imagem01.png) no-repeat;
+        background: #eabdc7 url(../assets/imagem01.png) no-repeat;
         background-size: cover;
         background-position: right bottom;
 
@@ -187,7 +187,7 @@ form>a.botao>span {
         float: right;
         width: 50%;
         height: 100%;
-        background: #eabdc7 url(/assets/imagem01.png) no-repeat;
+        background: #eabdc7 url(../assets/imagem01.png) no-repeat;
         background-size: cover;
         background-position: right center;
         /*  */
