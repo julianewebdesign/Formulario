@@ -1,120 +1,211 @@
 @charset "utf-8";
 
-/* 
-Um reset de página é quando nós reiniciamos a página. 
-Por essa a razão que começamos com o valor 0, pois é o valor inicial de uma página.
- */
-
+/* Reset global */
 * {
-  margin: 50;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/*
- "pixel": serve dimensões (largura x altura)
- "vh" e/ou "vw": para largura da tela (mobile first)
- "em" e/ou "rem": serve SOMENTE para fontes (mobile first / CSS3) 
- */
-html {
-  height: 100vh;
+html, body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
 }
-
-/* html height: (tamanho do site) */
-
-
-/*
-adicionar cor ao fundo
-  */
 
 body {
-  background-image: linear-gradient(to bottom, #f1badd 10%, #f7eff5 100%);
-  background-position: bottom;
-  background-repeat: no-repeat;
+  background-image: linear-gradient(to bottom, #f9e3f0 20%, #fef8fb 100%);
   background-attachment: fixed;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  overflow: hidden; /* Impede que as flores saiam do fundo */
 }
 
-h1 {
-  color: #af69ac;
-  font-weight: 500;
-  text-indent: 30px;
-  /* "text-indent" cria o parágrafo, e podemos personalizar e modificar o espaço que julgaremos necessáriio */
-  margin-bottom: 40px;
-  /* "margin-botton" cria o espaçamento entre linhas */
-  font-size: 45px;
+/* Animação de flores (Rosas) */
+@keyframes flowerAnimation {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
-h2 {
-  color: #ffffff;
-  font-weight: 700;
-  text-indent: 30px;
+.flower {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: #f4a5c1;
+  border-radius: 50%;
+  animation: flowerAnimation 8s infinite ease-in-out;
+  opacity: 0;
 }
 
-h3 {
-  text-indent: 30px;
-
+.flower:nth-child(1) {
+  top: 10%;
+  left: 20%;
+  animation-duration: 7s;
 }
 
+.flower:nth-child(2) {
+  top: 30%;
+  left: 50%;
+  animation-duration: 8s;
+}
+
+.flower:nth-child(3) {
+  top: 50%;
+  left: 80%;
+  animation-duration: 9s;
+}
+
+.flower:nth-child(4) {
+  top: 70%;
+  left: 30%;
+  animation-duration: 6s;
+}
+
+.flower:nth-child(5) {
+  top: 40%;
+  left: 70%;
+  animation-duration: 7s;
+}
+
+/* Criando o formato da rosa (petal shapes) */
+.flower:before,
+.flower:after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: #f4a5c1;
+  border-radius: 50%;
+  animation: flowerAnimation 8s infinite ease-in-out;
+  opacity: 0;
+}
+
+.flower:before {
+  top: -30%;
+  left: 20%;
+  transform: rotate(45deg);
+}
+
+.flower:after {
+  top: 20%;
+  left: -30%;
+  transform: rotate(-45deg);
+}
+
+/* Centralizando o conteúdo */
 .container {
   background-color: #fff;
-  padding: 4px;
-  margin: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 500px;
-  /* "width" define largura */
-  max-width: 500%
+  padding: 30px;
+  margin: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+  transition: transform 0.3s ease;
+  z-index: 10; /* Garante que o conteúdo fique acima das flores */
 }
 
+.container:hover {
+  transform: scale(1.02); /* Efeito de leve aumento */
+}
 
-
-h2 {
-  margin-bottom: 2px;
-  color: rgb(129, 59, 118);
+.container h2 {
+  color: #6a4c93;
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  text-align: center;
+  letter-spacing: 1px;
 }
 
 form {
   display: flex;
   flex-direction: column;
+  gap: 15px;
 }
 
-label {
+form label {
+  font-size: 1rem;
+  color: #6a4c93;
   margin-bottom: 5px;
+  font-weight: 600;
 }
 
-input {
-  margin-bottom: 1px;
-  padding: 1px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+form input {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  color: #333;
+  transition: all 0.3s ease;
 }
 
-button {
-  padding: 10px;
+form input:focus {
+  outline: none;
+  border-color: #6a4c93;
+  box-shadow: 0 0 5px rgba(106, 76, 147, 0.5);
+}
+
+form button {
+  padding: 12px;
   background-color: #ec94d9;
   color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button:hover {
-  background-color: #a334b9;
+form button:hover {
+  background-color: #ab53b9;
+  transform: translateY(-2px);
 }
 
-h4 {
-  margin-bottom: 2px;
-  color: rgb(199, 82, 183);
-  text-indent: 30px;
+form button:active {
+  transform: translateY(1px);
 }
 
-h5 {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  text-indent: 30px;
+/* Instruções */
+.instructions {
+  margin-top: 30px;
+  text-align: left;
+  font-size: 1rem;
+  color: #555;
 }
 
+.instructions h3 {
+  color: #6a4c93;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.instructions ol {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.instructions ol li {
+  margin-bottom: 10px;
+}
+
+/* Rodapé */
 footer {
-  margin-bottom: 400px;
-  text-indent: 30px;
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #aaa;
 }

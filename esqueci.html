@@ -17,53 +17,36 @@
         <h1>Esqueceu a senha?</h1>
     </header>
 
-    <article>
-        <h2>Vamos te ajudar!</h2>
+    <main class="main-content">
+        <section class="intro">
+            <h2>Vamos te ajudar!</h2>
+            <p>Forneça seu email ou nome de usuário utilizado anteriormente para acessar sua conta.</p>
+        </section>
 
-        <p>
-        <h4>Forneça seu Email ou Nome de Usuário</h4> <h5>Forneça seu o endereço de email utilizadoa nteriormente para
-        acessar a página ou o nome de usuário associado à sua
-        conta.</h5></p>
+        <section class="form-section">
+            <div class="container">
+                <h2>Recuperar Senha</h2>
+                <form id="reset-form" action="./send-reset-link" method="POST">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+                    <button type="submit" class="submit-btn">Enviar Link de Redefinição</button>
+                </form>
+            </div>
 
-        <div class="container">
-            <h2>Recuperar Senha</h2>
-            <form id="reset-form" action="./send-reset-link" method="POST"> <label for="email">Email:</label> <input
-                    type="email" id="email" name="email" required> <button type="submit">Enviar Link de
-                    Redefinição</button> </form>
-        </div>
+        </section>
 
-        <p>
-        <h4>Verifique a caixa de entrada do seu email:</h4> <h5>Verifique sua caixa de entrada (e também a pasta de spam)
-        para um email de recuperação de senha. Esse email geralmente contém um link para redefinir sua senha.</h5></p>
-
-        <p>
-        <h4>Redefina sua senha</h4> <h5>Clique no link fornecido no email e siga as instruções para criar uma nova senha.
-        Certifique-se de escolher uma senha forte e única por questões de segurança. </h5>
-        </p>
-
-        <p>
-        <h4>Fazer Login com a Nova Senha:</h4> <h5>Após redefinir sua senha, volte à tela de login e use a nova senha para
-        acessar sua conta. Você poderá acessar a página com seu login tranquilamente!</h5></p>
-
-        <h3>Dicas adicionais</h3>
-
-        <p>
-        <h4>Verifique o Spam:</h4> <h5>Às vezes, os emails de recuperação podem acabar na pasta de spam.</h5></p>
-
-        <p>
-        <h4>Contate o Suporte:</h4> <h5>Se você não conseguir redefinir a senha usando o método padrão, entre em contato com
-        o suporte ao cliente do site ou serviço.</h5></p>
-        <p>
-        <h4>Atualize Suas Informações:</h4> <h5>Após recuperar o acesso, verifique se suas informações de recuperação, como
-        email e número de telefone, estão atualizadas.</h5></p>
-
-
-
-    </article>
+        <section class="instructions">
+            <h3>Instruções:</h3>
+            <ol>
+                <li>Verifique a caixa de entrada do seu email para encontrar o link de recuperação.</li>
+                <li>Siga o link para redefinir sua senha e escolha uma nova senha forte.</li>
+                <li>Use sua nova senha para fazer login.</li>
+            </ol>
+        </section>
     </main>
 
-    <footer>
-        @Juliane - Form - 2024
+    <footer class="footer">
+        <p>&copy; 2024 - Juliane</p>
     </footer>
 </body>
 
